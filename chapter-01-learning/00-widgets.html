@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../libs/three.js"></script>
+  <script>
+    window.onload = function () {
+      // 1. 创建场景
+      let scene = new THREE.Scene();
+      // 2. 创建相机
+      let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+      // 3. 创建物体
+      // 绘制立方体
+      let geometry = new THREE.CubeGeometry(2, 2, 2);
+      // 描述立方体的材质
+      let material = new THREE.MeshBasicMaterial({ color: 0x666666 });
+      let cube = new THREE.Mesh(geometry, material);
+      // 将cube加入当前场景中
+      scene.add(cube);
+      // 4. 创建渲染器
+      let renderer = new THREE.WebGLRenderer();
+      // 设置渲染器的大小
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      console.log(renderer.domElement);
+      document.getElementById('root').append(renderer.domElement);
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
